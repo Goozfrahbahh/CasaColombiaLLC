@@ -1,0 +1,86 @@
+<div class="bg-gradient-to-bl from-zinc-700 to-zinc-900">
+      <div class="toggleclick" clickOutside (clickOutside)="clickedOutside()" *ngIf="loading === true">
+            <div id="stationarysidebar" [ngClass]="shadowStatus ? 'noShadow' : 'shadow' " (mouseover)="onMouseEnter()"
+                  class="mt-4 text-lg text-gray-300 fixed pt-7 w-10 top-0 left-0  min-h-full z-30 bg-[#1d1f20] rounded">
+                  <a routerLink="/dashboard">
+                        <mat-icon [routerLinkActive]="'active'" id="iconsbar2" class="icon"
+                              ariaCurrentWhenActive="page">
+                              view_quilt
+                        </mat-icon>
+                  </a>
+                  <a routerLink="/input-form">
+                        <mat-icon [routerLinkActive]="'active'" id="iconsbar5" class="icon"
+                              ariaCurrentWhenActive="page">
+                              design_services
+                        </mat-icon>
+                  </a>
+                  <a routerLink="/inventoryextraction">
+                        <mat-icon [routerLinkActive]="'active'" id="iconsbar3" class="icon"
+                              ariaCurrentWhenActive="page">
+                              file_open
+                        </mat-icon>
+                  </a>
+                  <a routerLink="calendar">
+                        <mat-icon [routerLinkActive]="'active'" id="iconsbar5" class="icon"
+                              ariaCurrentWhenActive="page">
+                              edit_calendar
+                        </mat-icon>
+                  </a>
+                  <a routerLink="/icategories">
+                        <mat-icon [routerLinkActive]="'active'" id="iconsbar2" class="icon"
+                              ariaCurrentWhenActive="page">
+                              inventory_2
+                        </mat-icon>
+                  </a>
+            <a routerLink="/settings" id="settingsModal" class="text-[#25b2e3]">
+                  <mat-icon [routerLink]="[ { outlets: { popup: [ 'settings']  }  } ]" id="iconsbar4" class="icon"
+                        class="bottom-6 absolute flex" ariaCurrentWhenActive="page">
+                        settings
+                  </mat-icon>
+            </a>
+            </div>
+      <div id="navigation-wrapper" class="absolute left-0 z-20 min-h-full">
+            <div id="nav-container" [ngClass]="statusLink ? 'widthlg2' : 'widthsm2'" (mouseleave)="onMouseOut()"
+                  class="bg-[#1d1f20] transition-all flex flex-row content-stretch text-2xl  pl-5 min-h-screen w-60">
+                  <nav id="sidebar" [ngClass]="statusLink ? 'ophundred' : 'opzero'" (mouseove)="onMouseEnter()"
+                        class="ml-7 mt-14 w-60 relative text-base text-gray-300">
+                        <a [routerLinkActive]="'active'" routerLink="/dashboard" class="inventorysideNav"
+                              class="justify-left hover:bg-opacity-50 w-60 flex mt-2 mb-5 transition-all"
+                              ariaCurrentWhenActive="page">
+                              Analytics Dashboard
+                        </a>
+                        <a [routerLinkActive]="'active'" routerLink="/inventoryorganizer" class="inventorysideNav"
+                              class="justify-left flex mb-5 transition-all" ariaCurrentWhenActive="page">
+                              Inventory Organizer
+                        </a>
+                        <a [routerLinkActive]="'active'" routerLink="/inventoryextraction" class="inventorysideNav"
+                              class="jusitfy-left flex mb-5 transition-all" ariaCurrentWhenActive="page">
+                              Extraction Upload
+                        </a>
+                        <a [routerLinkActive]="'active'" routerLink="/calendar" class="inventorysideNav"
+                              class="justify-left flex mb-5 transition-all" ariaCurrentWhenActive="page">
+                              Table Visualizer
+                        </a>
+                        <a [routerLinkActive]="'active'" routerLink="/icategories" class="inventorysideNav"
+                              class="justify-left flex transition-all" ariaCurrentWhenActive="page">
+                              Figure It Out Later
+                        </a>
+                  </nav>
+                  </div>
+                  </div>	
+	</div>
+<div (mouseover)="(onMouseEnter2)" id="title-container"
+      class="text-gray-300 drop-shadow-lg fixed min-w-full flex h-10 items-center align-center transition-all z-40 bg-[#1d1f20]">
+      <span class="text-[#25b2e3] ml-7 text-sm">Locations /</span>
+      <h1 class="titlebarText" class="ml-1 text-sm">Casa Colombia Downtown</h1>
+</div>
+<div id="projectWrapper" class="min-w-full min-h-full flex bg-[#141516]">
+      <div  [@routeAnimation]="getAnimationData()" class="w-full h-full ml-8 bg-[#141516] pt-5 transition-all">
+            <router-outlet (mouseover)="(onMouseEnter2)"></router-outlet>
+      </div>
+      <app-messages></app-messages>
+</div>
+<div class="absolute flex justify-center w-full h-full">
+	<router-outlet name="popup"></router-outlet>
+</div>
+</div>

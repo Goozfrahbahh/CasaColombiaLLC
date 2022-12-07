@@ -1,0 +1,47 @@
+.opzero {
+       opacity: 0 !important;
+}
+.ophundred {
+       opacity: 1 !important;
+}
+.margLeft {
+       margin-left: 240px !important;
+}
+.margleft {
+       margin-left: 40px !important;
+}
+.widthsm2 {
+       width: 20px  !important;
+}
+.widthlg2 {
+       width: 240px  !important;
+}
+widthOut {
+       width: 240px;
+}
+widthIn {
+       width: 40px;
+}
+.noshadow {
+       box-shadow: none;
+       filter: drop-shadow(none);
+}
+
+.shadow {
+       z-index: 30;
+       filter: drop-shadow()
+}
+#iconsbar5,
+#iconsbar4,
+#iconsbar3,
+#iconsbar2,
+#iconsbar {
+       display: flex;
+      margin-top: 20px;
+      margin-left: 8px;
+      font-size: 22px;
+      color: var(--shaded-text)
+}
+.inventorysideNav {
+       position: absolute;  
+}
