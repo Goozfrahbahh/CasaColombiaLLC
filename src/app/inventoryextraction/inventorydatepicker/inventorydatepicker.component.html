@@ -1,0 +1,39 @@
+<div class="button-calendar" class="flex justify-center mt-10">
+      <div class="nextpreviousbuttons"
+            class="flex content-between justify-center bg-transparent max-h-max ml-2.5  text-[15px] max-w-max pb-0.5">
+            <a class="previous-btn" (click)="setPreviousMonth()"
+                  class="text-indigo-600 flex justify-between content-center items-center border-r-2.5 p-0 pl-[3px]">
+                  <mat-icon class="alignself" class="flex content-center self-center align-middle">arrow_backward
+                  </mat-icon>
+            </a>
+            <div class="spacer" class="flex content-center justify-around text-white border-r-1.5 mr-[2vw] ml-[2vw]">
+                  <mat-card class="currentDate"> </mat-card>
+            </div>
+            <a class="next-btn" (click)="setNextMonth()"
+                  class="border-r-2.5 flex justify-between content-center items-center p-0 pl-1 pr-.5"> Next Month </a>
+            <div class="calendar-Title">
+                  To {{ this.nextMonthDisplay }}
+                  <mat-icon class="goNextMonth">arrow_forward</mat-icon>
+            </div>
+      </div>
+</div>
+<div style="display: flex" class="calendar-container">
+      <div style="flex: 0 0 200px">
+            <mat-month-view [activeDate]="currentMonth | async" [(selected)]="dateRange"
+                  (selectedChange)="selectedChange($event)" #currentDate></mat-month-view>
+      </div>
+      <div style="flex: 0 0 200px">
+            <mat-month-view [activeDate]="nextMonth | async" [(selected)]="dateRange"
+                  (selectedChange)="selectedChange($event)" #nextDate></mat-month-view>
+      </div>
+</div>
+<div class="lookup-dailytotal">
+      <mat-label class="viewDate"></mat-label>
+      <button mat-raised-button class="lookup-btn" (click)="onSubmitDateRange()"
+            class="flex flex-row justify-center border-r-1 p-1.5">
+            <span style="display: flex; justify-content: center" class="rightside">Current Selection:
+                  <span style="color: white">{{ formatDate2(dateRange.start) }}</span>
+                  <span style="color: white">&nbsp;-&nbsp;{{ formatDate2(dateRange.end) }}</span>
+            </span>
+      </button>
+</div>

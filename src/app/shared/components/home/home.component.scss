@@ -1,0 +1,61 @@
+$color_1: white;
+$font-family_1: 'Averia Serif Libre';
+$border-color_1: white;
+$border-top-color_1: black;
+
+@keyframes move {
+       100% {
+              margin-left: 70px;
+       }
+}
+
+body {
+       height: 100vh;
+       display: flex;
+}
+
+.g-container {
+       position: relative;
+       width: 200px;
+       height: 200px;
+       margin: auto;
+       color: $color_1;
+       border-color: $border-color_1;
+}
+
+fieldset {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 30vw;
+       height: 80vh;
+       border: 10px solid transparent;
+       border-top-color: $border-top-color_1;
+       box-sizing: border-box;
+
+       &:nth-of-type(2) {
+              transform: rotate(90deg);
+       }
+
+       &:nth-of-type(3) {
+              transform: rotate(180deg);
+
+              > legend {
+                     transform: rotate(180deg);
+              }
+       }
+
+       &:nth-of-type(4) {
+              transform: rotate(-90deg);
+       }
+}
+
+legend {
+       font-family: $font-family_1;
+       font-size: 24px;
+       line-height: 10px;
+       font-weight: bold;
+       margin-left: 0px;
+       padding: 0 1px;
+       animation: move 3s infinite linear alternate;
+}

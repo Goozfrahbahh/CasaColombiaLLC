@@ -1,0 +1,71 @@
+<!-- tabs -->
+<div class="tabs align-center absolute flex justify-center w-full mt-20">
+          <div class="rounded grid w-[40rem] grid-cols-3 space-x-2 divide-x divide-slate-700 bg-[#] p-2 mr-2" x-data="app">
+                    <div>
+                              <input type="radio" name="option" id="1" class="peer hidden"
+                                        (click)="selectTab('fileInput')" checked />
+                              <label for="1"
+                                        class="peer-checked:bg-[#1d1f20] inset-full peer-checked:text-white block p-2 font-serif text-center rounded shadow-lg cursor-pointer select-none">File
+                                        Input</label>
+                    </div>
+
+                    <div>
+                              <input type="radio" name="option" id="2" class="peer hidden"
+                                        (click)="selectTab('dateView')" />
+                              <label for="2"
+                                        class="peer-checked:bg-[#1d1f20] inset-full peer-checked:text-white block p-2 font-serif text-center rounded shadow-lg cursor-pointer select-none">Date
+                                        View</label>
+                    </div>
+
+                    <div>
+                              <input type="radio" name="option" id="3" class="peer hidden"
+                                        (click)="selectTab('visualizeView')" />
+                              <label for="3"
+                                        class="peer-checked:bg-[#1d1f20] inset-full peer-checked:text-white block p-2 font-serif text-center rounded shadow-lg cursor-pointer select-none">Edit
+                                        Selection </label>
+                    </div>
+          </div>
+</div>
+<div class="tabs w-full h-full">
+          <div *ngIf="selectedTab == 'fileInput'">
+                    <div class="bg-grey-lighter flex items-center justify-center w-full h-screen text-white">
+                              <label
+                                        class="flex flex-col font-serif items-center w-64 px-4 py-6 tracking-wide uppercase bg-[#131516] border-[1px] hover:border-neutral-800 border-slate-700 rounded-lg shadow-lg cursor-pointer hover:bg-[#191A1B] hover:text-[#25b2e3]">
+                                        <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                                                  viewBox="0 0 20 20">
+                                                  <path
+                                                            d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                                        </svg>
+                                        <span class="mt-2 text-base leading-normal">Select a file</span>
+                                        <input type="file" #fileImportInput class="hidden" accept="csv"
+                                                  (change)="fileChangeListener($event)" />
+                              </label>
+                    </div>
+                    <div class="max-w-2xl mx-auto">
+                              <div
+                                        class=" sm:p-8 bg-[rgb(24, 26, 27)] border-slate-700 max-w-md p-4 border rounded-lg shadow-md">
+                                        <div class="flex items-center justify-between mb-4">
+                                                  <h3
+                                                            class="dark:text-white text-xl font-bold leading-none text-gray-900">
+                                                            File-Input Results
+                                                  </h3>
+                                        </div>
+                                        <div *ngIf="hasRun">
+                                                  <div *ngFor="let list of entreeslist">
+                                                            <list-component item="{{list[0]}}" unit="{{list[1]}}">
+                                                            </list-component>
+                                                  </div>
+                                        </div>
+                              </div>
+                    </div>
+                    <div>
+                              <div *ngIf="selectedTab == 'dateView'" class="bg-transparent">
+                                        <div
+                                                  class="flex items-center justify-center w-full h-screen text-black">
+                                        </div>
+                                        <datepicker></datepicker>
+                              </div>
+                    </div>
+                    <div *ngIf="selectedTab == 'visualizeView'">
+                    </div>
+          </div>
